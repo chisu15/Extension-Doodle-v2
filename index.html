@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Extension Demo</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Niramit&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="head">
+        <a href="https://viet-doodle-gallery.vercel.app/" class="logo-title">
+          <img src="./img/vietdoodle.png" alt="" class="logo" />
+        </a>
+        <h1 class="user-name"></h1>
+      </div>
+      <span class="setting" id="setting">
+        <i class="fa-solid fa-gear"></i>
+      </span>
+      <div class="hidden-menu">
+        <div class="hidden-menu__dangNhap">Đăng nhập</div>
+        <form action="" class="login-form">
+          <input type="email" class="hidden-menu__input" placeholder="Email" />
+          <input
+            type="password"
+            class="hidden-menu__input"
+            placeholder="Mật khẩu"
+          />
+          <button class="hidden-menu__button">Đăng nhập</button>
+        </form>
+        <div class="hidden-menu__onOffExtension">
+          <div class="hidden-menu__onOffExtension__icon">
+            <i class="fa-solid fa-power-off"></i>
+          </div>
+          <div class="hidden-menu__onOffExtension__text">
+            Tiện ích Vietdoodle Gallery
+          </div>
+          <div class="hidden-menu__onOffExtension__toggle-default-change">
+            <span
+              class="hidden-menu__onOffExtension__label hidden-menu__onOffExtension__on-label"
+            ></span>
+            <span
+              class="hidden-menu__onOffExtension__label hidden-menu__onOffExtension__off-label"
+            ></span>
+            <div id="hidden-menu__onOffExtension__toggleButton"></div>
+          </div>
+        </div>
+        <div class="hidden-menu__line"></div>
+      </div>
+      <div class="body-c">
+        <div class="on-off-mode">
+          <h1 class="title-mode">Tự động thay đổi vào ngày đặc biệt</h1>
+          <div class="toggle-default-change">
+            <span class="label on-label"></span>
+            <span class="label off-label"></span>
+            <div id="toggleButton"></div>
+          </div>
+        </div>
+        <div class="preview">
+          <div class="doodle-preview">
+            <img
+              class="ele-preview"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
+              alt=""
+            />
+          </div>
+          <div class="fake-search-bar">
+            <div class="search-input-container">
+              <input type="text" placeholder="Tìm kiếm bằng Google" />
+            </div>
+          </div>
+          <!-- <div class="fake-button-container">
+            <button class="search-button">Google Search</button>
+            <button class="lucky-button">I'm Feeling Lucky</button>
+          </div> -->
+        </div>
+        <div class="google-input">
+          <div class="change-size">
+            <h3 class="decrement">-</h3>
+            <input
+              type="range"
+              min="20"
+              max="100"
+              value="50"
+              class="slider"
+              id="myRange"
+            />
+            <h3 class="increment">+</h3>
+          </div>
+        </div>
+        <div class="button-container">
+          <button class="button doodleBtn" id="button1">Doodles</button>
+          <button class="button moreBtn" id="button2">Đăng tải Doodles</button>
+        </div>
+        <div class="content1">
+          <button id="btn-random">Doodle ngẫu nhiên</button>
+          <form action="" id="form-random-change">
+              <button id="btn-random-change"> Doodle ngẫu nhiên theo thời gian: </button>
+              <input type="number" id="timer-random" placeholder="Hour" min="0" max="24">
+          </form>
+          <form action="" id="form-change">
+              <div>
+                  <label for="timer" style="display: none;">Set Date:</label>
+                  <input type="datetime-local" id="timer" min="2021-01-01T00:00" max="2099-12-31T23:59" 
+                  placeholder="Tiếng" style="display: none;">
+              </div>
+              <button id="changeDoodle">Lưu</button>
+          </form>
+          <!-- <button id="btn-random">Doodle ngẫu nhiên</button>
+          <form action="" id="form-random-change">
+            <button id="btn-random-change">
+              Doodle ngẫu nhiên theo thời gian
+            </button>
+            <input
+              type="number"
+              id="timer-random"
+              placeholder="Tiếng"
+              min="0"
+              max="24"
+            />
+          </form>
+          <form action="" id="form-change">
+            <button id="changeDoodle">Lưu</button>
+          </form> -->
+          <!-- YOUR DOODLE -->
+          <div class="upcoming-events">
+            <h2>Doodle của bạn</h2>
+          </div>
+          <div class="box-doodle">
+            <a class="btn prevYour">&#10094;</a>
+            <div class="your-doodle"></div>
+            <a class="btn nextYour">&#10095;</a>
+          </div>
+          <!-- FAVORITE DOODLE -->
+          <div class="upcoming-events">
+            <h2>Doodle yêu thích</h2>
+          </div>
+          <div class="box-doodle">
+            <a class="btn prevFav">&#10094;</a>
+            <div class="favorite-doodle"></div>
+            <a class="btn nextFav">&#10095;</a>
+          </div>
+          <!-- UPCOMING DOODLE -->
+          <div class="upcoming-events">
+            <h2>Sự kiện sắp tới</h2>
+          </div>
+          <div class="box-doodle">
+            <a class="btn prevUpcome">&#10094;</a>
+            <div class="doodle-upcoming"></div>
+            <a class="btn nextUpcome">&#10095;</a>
+          </div>
+          <!-- GAME -->
+          <div class="upcoming-events">
+            <h2>Doodle trò chơi</h2>
+          </div>
+          <div class="box-doodle">
+            <a class="btn prevGame">&#10094;</a>
+            <div class="game-doodle"></div>
+            <a class="btn nextGame">&#10095;</a>
+          </div>
+          <!-- ALL DOODLE -->
+          <div class="upcoming-events">
+            <h2>Tất cả Doodle</h2>
+          </div>
+          <div class="box-doodle">
+            <a class="btn prevAll">&#10094;</a>
+            <div class="all-doodle"></div>
+            <a class="btn nextAll">&#10095;</a>
+          </div>
+        </div>
+        <div class="content2">
+          <div class="upload-box">
+            <h1>Tải lên Doodle của bạn</h1>
+          </div>
+          <div class="upload-box">
+            <a href="https://viet-doodle-gallery.vercel.app/" target="_blank">
+              <h1>Tìm kiếm thêm ở cửa hàng Doodle</h1>
+            </a>
+          </div>
+          <form action="" id="form-upload">
+            <input id="doodle-input" type="file" />
+            <button id="uploadDoodle">Đăng tải Doodle</button>
+          </form>
+        </div>
+      </div>
+      <!-- <script src="changeTab.js"></script> -->
+      <script src="./popup.js"></script>
+      <script src="ui.js"></script>
+    </div>
+  </body>
+</html>

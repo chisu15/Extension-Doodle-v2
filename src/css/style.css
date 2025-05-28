@@ -1,0 +1,818 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: 'MuseoModerno';
+  /* font-family: "Niramit"; */
+  text-align: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 450px;
+  height: auto;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff; /* Màu nền của popup */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ cho popup */
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.head {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #db4133 solid 3px;
+  font-size: 8px;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.setting {
+  cursor: pointer;
+  font-size: 25px;
+  color: #db4133;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+.setting:hover {
+  transform: rotate(360deg); /* Xoay 1 vòng */
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  color: #db4133;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.user-name {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #db4133;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.login-form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hidden-menu {
+  height: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease-in;
+  width: 100%;
+  margin-top: -30px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+.hidden-menu__dangNhap {
+  font-size: 30px;
+  color: #db4133;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.hidden-menu form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hidden-menu__input {
+  display: flex;
+  width: 90%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+  text-align: start;
+  padding: 10px;
+  background-color: #e8f0fe;
+  border: 2px solid #db4133;
+  font-size: 16px;
+  overflow: hidden;
+}
+.hidden-menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+  padding: 5px;
+  background-color: #db4133;
+  border: 2px solid #db4133;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+.hidden-menu__button:hover {
+  background-color: white;
+  color: #db4133;
+  opacity: 1;
+}
+.hidden-menu__onOffExtension {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 2px solid #db4133;
+  color: #db4133;
+  transition: all 0.2s ease-in;
+  font-size: 16px;
+  margin-top: 40px;
+  overflow: hidden;
+}
+.hidden-menu__onOffExtension__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden-menu__onOffExtension__toggle-default-change {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  background-color: #f0f6ff;
+  border-radius: 17px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+.hidden-menu__onOffExtension__label {
+  position: absolute;
+  width: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  z-index: 1; /* Đảm bảo các nhãn luôn hiển thị trên cùng */
+}
+
+.hidden-menu__onOffExtension__on-label {
+  left: 5px;
+  transition: opacity 0.3s ease;
+  color: #2bdb66;
+}
+
+.hidden-menu__onOffExtension__off-label {
+  right: 5px;
+  transition: opacity 0.3s ease;
+  color: #db4133;
+}
+
+#hidden-menu__onOffExtension__toggleButton {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #2bdb66;
+  border-radius: 50%;
+  transition: left 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Màu chữ trắng */
+}
+
+.hidden-menu:hover {
+  height: 400px;
+  opacity: 1;
+}
+.hidden-menu__line {
+  width: 100%;
+  height: 3px;
+  background-color: #db4133;
+  margin-top: 20px;
+}
+.setting:hover + .hidden-menu {
+  height: 400px;
+  opacity: 1;
+}
+.body-c {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 80%; /* Adjusted from a smaller percentage or fixed width */
+  height: 180px;
+  margin: auto;
+  padding: 20px; /* Provides space around the contents */
+  border: 1px solid #ccc; /* Optional: adds a border for visual structure */
+  border-radius: 8px;
+  align-items: center;
+  overflow: hidden;
+}
+.doodle-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ele-preview {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  transform-origin: bottom;
+}
+
+.google-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search-icon {
+  position: absolute;
+  left: 21%;
+  color: #a0a0a0;
+  /* z-index:  999; */
+}
+#search-static {
+  width: 60%;
+  height: 2rem;
+  border: #ccc solid 1px;
+  border-radius: 25px;
+}
+.upcoming-events h2,
+.doodle-newest h2,
+.all-doodle h2 {
+  color: #db4133; /* Đổi màu chữ */
+  font-family: museomoderno; /* Đổi font chữ */
+  /* font-family: "Niramit"; */
+  text-align: left; /* Căn chữ bên trái */
+  padding: 0;
+  border-bottom: #c25757 2px solid;
+}
+.box-doodle {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  /* width: 100%; */
+  height: 140px;
+  align-items: center;
+  /* overflow-x: scroll; */
+  white-space: nowrap;
+  gap: 20px;
+}
+.btn {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(217, 111, 111);
+  transition: 0.2s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/*button*/
+
+.button-container {
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #db4133;
+  width: 92%;
+  margin: auto;
+}
+#form-change {
+  display: flex;
+  flex-direction: column;
+}
+#changeDoodle {
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgb(59 130 246);
+  width: 90%;
+  padding: 10px;
+  padding-inline: 20px;
+  margin: auto;
+  color: #fff;
+  margin-top: 10px;
+  border: none;
+}
+#changeDoodle:hover {
+  background-color: rgb(37 99 235); /* Màu nền khi di chuột qua nút */
+  transition: background-color 0.2s ease-in-out; /* Làm mượt hiệu ứng thay đổi màu nền */
+}
+
+.button {
+  background-color: #ffcaca;
+  font-weight: bold;
+  border: none;
+  height: 35px;
+  width: 48%;
+  border-radius: 5px;
+  margin: 6px 0px 6px 0px;
+  transition: all 0.2s ease;
+}
+.button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+/*Search*/
+.search {
+  text-align: right;
+}
+#myInput {
+  background-image: url('/img/magnifying-glass-solid.svg'); /* Add a search icon to input */
+  background-size: 18px; /* Adjust the size of the background image */
+  background-position: 10px 5px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 20%; /* Full-width */
+  font-size: 12px; /* Increase font-size */
+  padding: 5px 20px 5px 40px; /* Add some padding */
+  border: 1px solid #cf354a; /* Add a grey border */
+  margin: 12px; /* Add some space below the input */
+  background-color: #ec9999;
+  border-radius: 50px;
+  text-align: left;
+}
+
+/*slider*/
+
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 10px;
+  background: #ecb1b1;
+  outline: none;
+  border-radius: 5px;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider-button {
+  font-weight: bold;
+  font-size: 50px;
+  padding: auto;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c7142c;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #6ae452;
+  cursor: pointer;
+}
+
+/* change-size */
+
+.change-size {
+  display: flex;
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+  color: #ff6060;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  /* margin: 20px; */
+}
+
+.change-size input {
+  width: 50%;
+  color: #ff6060;
+}
+
+.change-size .decrement,
+.change-size .increment {
+  cursor: pointer; /* Đặt kiểu con trỏ thành ngón tay trỏ */
+}
+
+.doodle-upcoming,
+.favorite-doodle,
+.doodle-newest,
+.all-doodle,
+.your-doodle,
+.game-doodle {
+  display: inline-block;
+  width: 400px;
+  height: 5.5rem;
+  gap: 13px;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt mà */
+}
+.empty {
+  /* justify-self: auto; */
+
+  text-align: center;
+  color: #ff6060;
+  font-size: 1.4rem;
+  width: 100%;
+  height: auto;
+  white-space: normal; /* Cho phép nội dung xuống dòng */
+}
+.ele {
+  display: flex;
+  width: 10rem;
+  height: 5rem;
+  object-fit: cover;
+  border: 3px #c1d8ed solid;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.ele:hover {
+  cursor: pointer;
+  object-fit: contain;
+  box-shadow: #c25757 2px 6px 3px;
+}
+.doodle {
+  display: inline-flex;
+  overflow: hidden;
+  margin-right: 10px;
+  /* gap: 10px; */
+  transition: all 0.3s ease;
+}
+.doodle:hover {
+  cursor: pointer;
+  /* object-fit: contain; */
+  box-shadow: #c25757 2px 6px 0px;
+}
+#customDoodle {
+  max-width: 100%;
+  display: none;
+}
+
+.title-doodle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.check img {
+  border: 3px #ff6060 solid;
+}
+
+.upload-box {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 200px;
+  border: #c25757 2px solid;
+  border-radius: 8px;
+  border-style: dashed;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.upload-box a {
+  text-decoration: none;
+}
+.upload-box h1 {
+  color: #b36464;
+  overflow: hidden;
+}
+.upload-box h1:hover {
+  color: #d81313;
+}
+.content1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.content2 {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+  /* align-items: center; */
+  /* gap: 20px; */
+}
+#uploadDoodle {
+  margin-top: 20px;
+  padding: 10px;
+  color: #ffffff;
+  border-radius: 7px;
+  border: none;
+  font-weight: bold;
+  background-color: rgb(59 130 246);
+}
+#uploadDoodle:hover {
+  background-color: rgb(37 99 235);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+#doodle-input {
+  display: none;
+}
+#form-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#user-doodle {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes text-wobble {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#btn-random {
+  cursor: pointer;
+  width: 90%;
+  align-self: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 16, 255, 1) 0%,
+    rgba(255, 0, 43, 1) 100%
+  );
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 7px;
+  padding: 6px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: black 1px 2px 1px 3px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+#btn-random:hover {
+  box-shadow: black 1px 0px 1px 0px;
+  animation: gradient-animation 1.5s infinite linear;
+}
+
+#btn-random:hover span {
+  display: inline-block;
+  animation: text-wobble 0.5s infinite;
+}
+
+#form-random-change {
+  display: flex;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  padding: 5px 23px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#timer-random {
+  width: 0%;
+  padding: 6px;
+  border-radius: 8px;
+  outline: none;
+  border: #ccc 2px solid;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#btn-random-change {
+  cursor: pointer;
+  width: 100%;
+  align-self: center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 115, 115, 1) 0%,
+    rgba(155, 0, 0, 1) 100%
+  );
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 7px;
+  padding: 6px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: black 1px 2px 1px 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+#form-random-change:hover > #btn-random-change {
+  box-shadow: rgb(255, 115, 115) 1px 0px 1px 0px;
+  width: 60%;
+  animation: gradient-animation 1.5s infinite linear;
+}
+
+#form-random-change:hover > #btn-random-change span {
+  display: inline-block;
+  animation: text-wobble 0.5s infinite;
+}
+
+#form-random-change:hover > #timer-random {
+  display: flex;
+  width: 35%;
+}
+.button-off {
+  background: grey !important;
+  box-shadow: none !important;
+  color: #ccc !important;
+}
+
+.button-off span {
+  animation: none !important;
+}
+
+.on-off-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.toggle-default-change {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  background-color: #f0f6ff;
+  border-radius: 17px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+.label {
+  position: absolute;
+  width: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  z-index: 1; /* Đảm bảo các nhãn luôn hiển thị trên cùng */
+}
+
+.on-label {
+  left: 5px;
+  transition: opacity 0.3s ease;
+  color: #2bdb66;
+}
+
+.off-label {
+  right: 5px;
+  transition: opacity 0.3s ease;
+  color: #db4133;
+}
+
+#toggleButton {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #2bdb66;
+  border-radius: 50%;
+  transition: left 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Màu chữ trắng */
+}
+.title-mode {
+  color: #db4133;
+  font-size: 18px;
+  font-weight: 400;
+}
+.fake-search-bar {
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  padding: 2px 20px;
+  overflow: hidden;
+}
+
+.fake-search-bar input {
+  flex: 1;
+  border: none;
+  font-size: 12px;
+  outline: none;
+  overflow: hidden;
+}
+
+.search-button,
+.lucky-button {
+  background-color: #e9e9e9f5;
+  border: 1px solid #f8f9fa;
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  outline: none;
+}
+
+.fake-button-container {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.search-button:hover,
+.lucky-button:hover {
+  border: 1px solid #c6c6c6;
+  background-color: #f0f0f0;
+}

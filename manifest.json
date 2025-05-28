@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "VietDoodle Gallery",
+  "version": "1.2",
+  "description": "Change Google Doodle",
+  "permissions": [
+    "alarms",
+    "storage",
+    "tabs",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.co.uk/", "https://www.google.com/", "https://www.google.com.vn/"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "48": "img/logo.png"
+  },
+  "host_permissions": [
+    "https://www.google.com/*"
+  ]
+}
